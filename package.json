@@ -1,7 +1,7 @@
 {
-  "name": "node-red-contrib-MY_NODESET_NAME",
+  "name": "node-red-contrib-aws-qldb",
   "version": "0.2.3",
-  "description": "Description of the node set here",
+  "description": "AWS Quantum Ledger Database (QLDB) Nodes",
   "scripts": {
     "add-node": "node ./utils/add-node.js",
     "copy": "copyfiles -u 2 \"./src/nodes/**/*.{png,svg}\" \"./dist/nodes/\"",
@@ -16,16 +16,22 @@
     "lint": "prettier --ignore-path .eslintignore --check '**/*.{js,ts,md}'; eslint --ext .js,.ts .",
     "lint:fix": "prettier --ignore-path .eslintignore --write '**/*.{js,ts,md}'; eslint --ext .js,.ts . --fix"
   },
-  "author": "Alex Kaul",
+  "author": "AJ Newton",
   "license": "MIT",
   "node-red": {
     "nodes": {
-      "transform-text": "./dist/nodes/transform-text/transform-text.js"
+      "aws-qldb-insert-rows": "./dist/nodes/aws-qldb-insert-rows/aws-qldb-insert-rows.js"
     }
   },
-  "dependencies": {},
+  "dependencies": {
+    "amazon-qldb-driver-nodejs": "^2.1.1",
+    "aws-sdk": "^2.883.0",
+    "ion-js": "^4.1.0",
+    "jsbi": "^3.1.4"
+  },
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.0.0",
+    "@types/aws-sdk": "^2.7.0",
     "@types/express": "^4.17.9",
     "@types/jest": "^26.0.15",
     "@types/node": "^14.14.10",
