@@ -31,29 +31,35 @@ describe("upload-to-place", () => {
   it("should insert a row", (done) => {
     const flows: Flows = [
       {
-        id: "n1",
+        id: "qldb-indert-node",
         type: "aws-qldb-insert-rows",
         name: "aws-qldb-insert-rows",
         ledger: process.env.AWS_LEDGER,
         table: process.env.AWS_TABLE,
-        awsAccessKeyId: process.env.AWS_ACCESS_KEY_ID,
-        awsSecretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
         region: process.env.AWS_REGION || 'us-east-1',
-        wires: [["n2"]],
+        wires: [["output-node"]],
       },
       {
-        id: "n2",
+        id: "output-node",
         type: "helper"
       }
     ];
-    testHelper.load(AwsQldbInsertRowsNode, flows, () => {
-      const n1 = testHelper.getNode("n1");
-      const n2 = testHelper.getNode("n2");
-      n2.on("input", (msg: unknown) => {
+
+    const credentials = {
+      "qldb-indert-node": {
+        awsAccessKeyId: process.env.AWS_ACCESS_KEY_ID,
+        awsSecretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+      }
+    };
+
+    testHelper.load(AwsQldbInsertRowsNode, flows, credentials, () => {
+      const qldbInsertNode = testHelper.getNode("qldb-indert-node");
+      const outputNode = testHelper.getNode("output-node");
+      outputNode.on("input", (msg: unknown) => {
         console.log(msg);
         done();
       })
-      n1.receive({ payload: [{
+      qldbInsertNode.receive({ payload: [{
         Id: '1',
         Stamp: new Date(),
       },{
@@ -61,6 +67,7 @@ describe("upload-to-place", () => {
         Stamp: new Date(),
       }] });
     });
+
   });
 });
 

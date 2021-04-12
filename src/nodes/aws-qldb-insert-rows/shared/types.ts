@@ -1,3 +1,6 @@
+/**
+ * Options available to editor
+ */
 export interface AwsQldbInsertRowsOptions {
   /** Name of the ledger we are connecting to */
   ledger: string,
@@ -9,6 +12,12 @@ export interface AwsQldbInsertRowsOptions {
 
   /** Region to connect to */
   region: string,
+}
+
+/**
+ * Credentials to be stored off-planet
+ */
+export interface AwsQldbInsertRowsCredentials {
   /** Access Key ID configured in your AWS account (TODO - Pull from AWS configuration node) */
   awsAccessKeyId: string,
   /** Access Key Secret Key configured in your AWS account (TODO - Pull from AWS configuration node) */

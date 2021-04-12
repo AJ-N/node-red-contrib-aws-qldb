@@ -8,17 +8,19 @@ import { config as AWSConfig } from 'aws-sdk';
 const nodeInit: NodeInitializer = (RED): void => {
   function AwsQldbInsertRowsNodeConstructor(
     this: AwsQldbInsertRowsNode,
-    config: AwsQldbInsertRowsNodeDef
+    config: AwsQldbInsertRowsNodeDef,
   ): void {
     RED.nodes.createNode(this, config);
     const node = this;
 
     // Set connection settings
     const {
-      awsAccessKeyId: accessKeyId,
-      awsSecretAccessKey: secretAccessKey,
       region,
     } =  config;
+    const {
+      awsAccessKeyId: accessKeyId,
+      awsSecretAccessKey: secretAccessKey,
+    } = node.credentials;
     AWSConfig.update({
       accessKeyId,
       secretAccessKey,
@@ -30,8 +32,6 @@ const nodeInit: NodeInitializer = (RED): void => {
 
     // The messages should be coming in with payload being array of rows
     node.on("input", async (msg, send, done) => {
-
-
       try {
 
         // NOTE: Due to some weird issue with how node-red sends things in, we need to serialize / un-serialize
@@ -63,7 +63,13 @@ const nodeInit: NodeInitializer = (RED): void => {
     });
   }
 
-  RED.nodes.registerType("aws-qldb-insert-rows", AwsQldbInsertRowsNodeConstructor);
+  RED.nodes.registerType("aws-qldb-insert-rows", AwsQldbInsertRowsNodeConstructor, {
+    // NOTE: We need to include this here and in html node-definition for some reason
+    credentials: {
+      awsAccessKeyId: { type: 'text' },
+      awsSecretAccessKey: { type: 'password' },
+    }
+  });
 };
 
 /**

@@ -1,9 +1,9 @@
 import { EditorRED } from "node-red";
-import { AwsQldbInsertRowsEditorNodeProperties } from "./modules/types";
+import { AwsQldbInsertRowsCredentials, AwsQldbInsertRowsEditorNodeProperties } from "./modules/types";
 
 declare const RED: EditorRED;
 
-RED.nodes.registerType<AwsQldbInsertRowsEditorNodeProperties>("aws-qldb-insert-rows", {
+RED.nodes.registerType<AwsQldbInsertRowsEditorNodeProperties, AwsQldbInsertRowsCredentials>("aws-qldb-insert-rows", {
   category: "function",
   color: "#a6bbcf",
   defaults: {
@@ -12,8 +12,10 @@ RED.nodes.registerType<AwsQldbInsertRowsEditorNodeProperties>("aws-qldb-insert-r
     table: { value: '', required: true },
     returnDocumentIds: { value: false, required: true },
     region: { value: '', required: true },
-    awsAccessKeyId: { value: '', required: true },
-    awsSecretAccessKey: { value: '', required: true },
+  },
+  credentials: {
+    awsAccessKeyId: { type: 'text' },
+    awsSecretAccessKey: { type: 'password' },
   },
   inputs: 1,
   outputs: 1,
