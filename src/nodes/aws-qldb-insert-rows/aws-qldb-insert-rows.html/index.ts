@@ -4,8 +4,8 @@ import { AwsQldbInsertRowsCredentials, AwsQldbInsertRowsEditorNodeProperties } f
 declare const RED: EditorRED;
 
 RED.nodes.registerType<AwsQldbInsertRowsEditorNodeProperties, AwsQldbInsertRowsCredentials>("aws-qldb-insert-rows", {
-  category: "function",
-  color: "#a6bbcf",
+  category: "AWS QLDB",
+  color: "#94cdd0",
   defaults: {
     name: { value: "" },
     ledger: { value: '', required: true },
@@ -19,9 +19,9 @@ RED.nodes.registerType<AwsQldbInsertRowsEditorNodeProperties, AwsQldbInsertRowsC
   },
   inputs: 1,
   outputs: 1,
-  icon: "file.png",
-  paletteLabel: "AWS QLDB (insert)",
+  icon: "db.png",
+  paletteLabel: "AWS QLDB (Insert)",
   label: function () {
-    return this.name || "AWS QLDB";
+    return this.name || "AWS QLDB (Insert)";
   },
 });

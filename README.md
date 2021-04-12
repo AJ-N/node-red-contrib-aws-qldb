@@ -2,6 +2,8 @@
 
 This was forked from [Node-RED Node TypeScript Starter](https://github.com/alexk111/node-red-node-typescript-starter)
 
+AWS QLDB nodes for `node-red`. Currently only `insert-rows` is implemented as a proof-of-concept.
+
 ## Getting Started
 
 Everything has been tested with node version: `v12.18.3`
@@ -9,6 +11,8 @@ Everything has been tested with node version: `v12.18.3`
 ```bash
 # Install dependencies
 npm i
+# Might need typescript, maybe
+npm i -g tsc typescript
 
 # Run and test
 # NOTE: The test involves live data (for now)
@@ -40,7 +44,7 @@ npm i /path/to/this/repo
 
 ```bash
 # Bundle it up
-npm pack
+npm run build && npm pack
 # -> produces artifact like: node-red-contrib-aws-qldb-0.1.0.tgz
 
 # Copy to node red directory
@@ -58,6 +62,10 @@ npm i node-red-contrib-aws-qldb-0.1.0.tgz
   * [ ] Select
   * [ ] Update
   * [ ] Delete
+
+## Submitting Changes
+
+Create a pull request.
 
 ## License
 
