@@ -4,11 +4,25 @@ This was forked from [Node-RED Node TypeScript Starter](https://github.com/alexk
 
 AWS QLDB nodes for `node-red`. Currently only `insert-rows` is implemented as a proof-of-concept.
 
+## Example Use Cases
+
+* Write only insertions to AWS QLDB (audit logs, metadata hashing, etc.)
+
 ## Using (with node-red)
+
+Install via CLI (or use the pallette manager and search for `node-red-contrib-aws-qldb`)
 
 ```bash
 npm i node-red-contrib-aws-qldb
 ```
+
+## Inputs / Outputs
+
+### Insert Node
+
+The insert node will take whatever is on `msg.payload` and attempt to insert it into the AWS QLDB you have defined. It will accept a plain object or an array of objects.
+
+It will return a list of document IDs if successful.
 
 ## Getting Started
 
