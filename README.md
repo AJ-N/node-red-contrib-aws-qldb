@@ -23,8 +23,15 @@ npm run dev
 
 Create a production build:
 
-```
+```bash
 npm run build
+```
+
+Reference it in your node-red:
+
+```bash
+# From node-red local directory:
+npm i /path/to/this/repo
 ```
 
 ## TODO
@@ -38,4 +45,8 @@ npm run build
 
 ## License
 
-TODO
+MIT &copy; AJ Newton (see `./LICENSE`)
+
+### Forked Project License
+
+MIT &copy; Alex Kaul (see `./LICENSE.node-red-typescript-starter`)
