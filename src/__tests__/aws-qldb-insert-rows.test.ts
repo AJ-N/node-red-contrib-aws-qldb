@@ -38,7 +38,7 @@ describe("upload-to-place", () => {
         table: process.env.AWS_TABLE,
         awsAccessKeyId: process.env.AWS_ACCESS_KEY_ID,
         awsSecretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-        awsRegion: process.env.AWS_REGION || 'us-east-1',
+        region: process.env.AWS_REGION || 'us-east-1',
         wires: [["n2"]],
       },
       {
