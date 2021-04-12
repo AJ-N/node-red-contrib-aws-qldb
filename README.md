@@ -1,4 +1,4 @@
-# AWS Quantum DB Ledger (Insert Node)
+# AWS Quantum DB Ledger Nodes for Node-Red
 
 This was forked from [Node-RED Node TypeScript Starter](https://github.com/alexk111/node-red-node-typescript-starter)
 
