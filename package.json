@@ -23,6 +23,20 @@
       "aws-qldb-insert-rows": "./dist/nodes/aws-qldb-insert-rows/aws-qldb-insert-rows.js"
     }
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aj-n/node-red-contrib-aws-qldb.git"
+  },
+  "keywords": [
+    "node-red",
+    "nodered",
+    "aws",
+    "qldb",
+    "quantum",
+    "ledger",
+    "database",
+    "db"
+  ],
   "dependencies": {
     "amazon-qldb-driver-nodejs": "^2.1.1",
     "aws-sdk": "^2.883.0",
