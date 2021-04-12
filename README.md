@@ -4,6 +4,8 @@ This was forked from [Node-RED Node TypeScript Starter](https://github.com/alexk
 
 ## Getting Started
 
+Everything has been tested with node version: `v12.18.3`
+
 ```bash
 # Install dependencies
 npm i
@@ -32,6 +34,20 @@ Reference it in your node-red:
 ```bash
 # From node-red local directory:
 npm i /path/to/this/repo
+```
+
+### Local packaging
+
+```bash
+# Bundle it up
+npm pack
+# -> produces artifact like: node-red-contrib-aws-qldb-0.1.0.tgz
+
+# Copy to node red directory
+cp node-red-contrib-aws-qldb-0.1.0.tgz /path/to/node-red/local
+cd /path/to/node-red/local
+# Install bundle
+npm i node-red-contrib-aws-qldb-0.1.0.tgz
 ```
 
 ## TODO
