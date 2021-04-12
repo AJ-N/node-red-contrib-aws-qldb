@@ -4,6 +4,12 @@ This was forked from [Node-RED Node TypeScript Starter](https://github.com/alexk
 
 AWS QLDB nodes for `node-red`. Currently only `insert-rows` is implemented as a proof-of-concept.
 
+## Using (with node-red)
+
+```bash
+npm i node-red-contrib-aws-qldb
+```
+
 ## Getting Started
 
 Everything has been tested with node version: `v12.18.3`
