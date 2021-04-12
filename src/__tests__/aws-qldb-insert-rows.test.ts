@@ -31,7 +31,7 @@ describe("upload-to-place", () => {
   it("should insert a row", (done) => {
     const flows: Flows = [
       {
-        id: "qldb-indert-node",
+        id: "qldb-insert-node",
         type: "aws-qldb-insert-rows",
         name: "aws-qldb-insert-rows",
         ledger: process.env.AWS_LEDGER,
@@ -46,14 +46,14 @@ describe("upload-to-place", () => {
     ];
 
     const credentials = {
-      "qldb-indert-node": {
+      "qldb-insert-node": {
         awsAccessKeyId: process.env.AWS_ACCESS_KEY_ID,
         awsSecretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
       }
     };
 
     testHelper.load(AwsQldbInsertRowsNode, flows, credentials, () => {
-      const qldbInsertNode = testHelper.getNode("qldb-indert-node");
+      const qldbInsertNode = testHelper.getNode("qldb-insert-node");
       const outputNode = testHelper.getNode("output-node");
       outputNode.on("input", (msg: unknown) => {
         console.log(msg);
